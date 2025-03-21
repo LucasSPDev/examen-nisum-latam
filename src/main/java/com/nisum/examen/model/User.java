@@ -2,22 +2,50 @@ package com.nisum.examen.model;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
-
+@Entity
+@Table(name = "USER")
 public class User {
-	
+
+	@Id
+	@Column(name = "uuid")
 	private String uuid;
+	
+	@Column(name = "created")
 	private Date created;
+	
+	@Column(name = "modified")
 	private Date modified;
+	
+	@Column(name = "last_login")
 	private Date lastLogin;
-	private boolean isac1tive;
+	
+	@Column(name = "active")
+	private boolean active;
+	
+	@Column(name = "token")
 	private String token;
-	
+
+	@Column(name = "name")
 	private String name;
-	private String email;
-	private String password;
-	private List<UserPhone> phoneList;
 	
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Phone> phones;
+
 	public String getUuid() {
 		return uuid;
 	}
@@ -42,12 +70,7 @@ public class User {
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
-	public boolean isIsac1tive() {
-		return isac1tive;
-	}
-	public void setIsac1tive(boolean isac1tive) {
-		this.isac1tive = isac1tive;
-	}
+	
 	public String getToken() {
 		return token;
 	}
@@ -72,12 +95,28 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<UserPhone> getPhoneList() {
-		return phoneList;
+
+	public List<Phone> getPhones() {
+		return phones;
 	}
-	public void setPhoneList(List<UserPhone> phoneList) {
-		this.phoneList = phoneList;
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
 	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [uuid=" + uuid + ", created=" + created + ", modified=" + modified + ", lastLogin=" + lastLogin
+				+ ", active=" + active + ", token=" + token + ", name=" + name + ", email=" + email + ", password="
+				+ password + ", phones=" + phones + "]";
+	}
+
 	
 
 }

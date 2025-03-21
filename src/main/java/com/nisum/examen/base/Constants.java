@@ -20,6 +20,9 @@ public class Constants {
 	public static String CODE_PHONE_USER = "05";
 	public static String CODE_PHONE_USER_DESC = "Falta campo phone en la peticion";
 	
+	public static String CODE_ERR_CREATE_USER = "06";
+	public static String CODE_ERR_CREATE_USER_DESC = "El usuario no ha podido ser creado";
 	
-
+	public static String CODE_ERR_QUERY_USER = "07";
+	public static String CODE_ERR_QUERY_USER_DESC = "Usuario no existe";
 }

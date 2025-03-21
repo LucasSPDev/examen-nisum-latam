@@ -57,6 +57,7 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.OK).body(userResponse);
 
 		}catch(Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
 		}
 
@@ -65,13 +66,13 @@ public class UserController {
 
 
 	@GetMapping("/getUserInfo")
-	public ResponseEntity<UserResponse> getUserInfoByUUID() {
+	public ResponseEntity<UserResponse> getUserInfoByUUID(@RequestBody UserRequest userRequest) {
 
 		UserResponse userResponse = new UserResponse();
 		userResponse.setCode(Constants.CODE_OK);
 		userResponse.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
 
-		this.userService.getUserInfoByUUID();
+		userResponse = this.userService.getUserInfoByUUID(userRequest.getUuid());
 		return ResponseEntity.status(HttpStatus.OK).body(userResponse);
 	}
 

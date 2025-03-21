@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.nisum.examen.model.UserPhone;
+import com.nisum.examen.model.Phone;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
@@ -15,6 +15,8 @@ import javax.validation.constraints.NotEmpty;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 public class UserRequest{
+	
+	private String uuid;
 	
 	@Schema(description = "Nombre completo del usuario", example = "Juan Rodríguez")
 	@NotNull
@@ -39,7 +41,7 @@ public class UserRequest{
 	@Schema(description = "Lista de telefonos de contacto del usuario", example = "Lista")
 	@NotEmpty
 	@NotNull
-	private List<UserPhone> phoneList;
+	private List<Phone> phones;
 	
 	public String getName() {
 		return name;
@@ -59,14 +61,17 @@ public class UserRequest{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<UserPhone> getPhoneList() {
-		return phoneList;
+	public List<Phone> getPhones() {
+		return phones;
 	}
-	public void setPhoneList(List<UserPhone> phoneList) {
-		this.phoneList = phoneList;
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
+	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 	
-	
-
-
 }
