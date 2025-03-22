@@ -137,7 +137,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"1\",\r\n    \"email\": \"juan@rodriguez.org\",\r\n    \"password\": \"Ab123456789aaaaa\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"11\",\r\n            \"cityCode\": \"1\",\r\n            \"countryCode\": \"57\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"name\": \"Lucas dos\",\r\n    \"email\": \"test@asasasasas.com\",\r\n    \"password\": \"Ab123456789aaaaa\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": 11,\r\n            \"cityCode\": \"1\",\r\n            \"countryCode\": \"57\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -165,7 +165,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Lucas Salvador\",\r\n    \"email\": \"lucas@lucas.com\",\r\n    \"password\": \"Ab123456789aaaaa\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"11\",\r\n            \"cityCode\": \"1\",\r\n            \"countryCode\": \"57\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"name\": \"Lucas Salvador\",\r\n    \"email\": \"test@asasasasas.com\",\r\n    \"password\": \"Ab123456789aaaaa\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"11\",\r\n            \"cityCode\": \"1\",\r\n            \"countryCode\": \"57\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
