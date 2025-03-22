@@ -81,8 +81,8 @@ contraseña: (vacía)
    }
   ```
 - **Códigos de error:**
-  - `404` - Usuario no encontrado
-  - `400` - UUID inválido
+  - `200` - OK
+  - `500` - Internal Server Error
 
 ### 3. Obtener lista paginada de usuarios
 - **URL:** `http://localhost:8080/getPaginateUserInfo`
@@ -145,8 +145,8 @@ contraseña: (vacía)
    }
   ```
 - **Códigos de error:**
-  - `400` - Parámetros de paginación inválidos
-  - `404` - No hay usuarios disponibles
+  - `200` - OK
+  - `500` - Internal Server Error
 
 ### 4. Buscar usuario por email
 - **URL:** `http://localhost:8080/getUserInfoByEmail`
@@ -186,8 +186,8 @@ contraseña: (vacía)
    }
   ```
 - **Códigos de error:**
-  - `404` - Usuario no encontrado
-  - `400` - Email inválido
+  - `200` - OK
+  - `500` - Internal Server Error
 
 ### 5. Crear nuevo usuario
 - **URL:** `http://localhost:8080/createNewUser`
@@ -242,8 +242,8 @@ contraseña: (vacía)
    }
   ```
 - **Códigos de error:**
-  - `400` - Datos de usuario inválidos
-  - `409` - Email ya registrado
+  - `200` - OK
+  - `500` - Internal Server Error
 
 ### 6. Modificar usuario
 - **URL:** `http://localhost:8080/modifyUser`
@@ -298,8 +298,9 @@ contraseña: (vacía)
    }
   ```
 - **Códigos de error:**
-  - `404` - Usuario no encontrado
-  - `400` - Datos inválidos
+  - `200` - OK
+  - `500` - Internal Server Error
+    
 </Details>
 
 ## 📄 Colección de Postman
