@@ -21,7 +21,7 @@ public class Constants {
 	public static String CODE_PHONE_USER_DESC = "Error en el campo 'phone', no es valido";
 
 	public static String CODE_ERR_CREATE_USER = "06";
-	public static String CODE_ERR_CREATE_USER_DESC = "Errpr en la creacion del usuario";
+	public static String CODE_ERR_CREATE_USER_DESC = "Error en la creacion del usuario";
 
 	public static String CODE_ERR_QUERY_USER = "07";
 	public static String CODE_ERR_QUERY_USER_DESC = "Usuario no existe";
@@ -29,7 +29,10 @@ public class Constants {
 	public static String CODE_ERR_CREATE_USER_BY_EMAIL = "08";
 	public static String CODE_ERR_CREATE_USER_BY_EMAIL_DESC = "El email ya se encuentra registrado";
 	
-	public static String CODE_ERR_MODIFY_USER_BY_EMAIL = "08";
+	public static String CODE_ERR_MODIFY_USER_BY_EMAIL = "09";
 	public static String CODE_ERR_MODIFY_USER_BY_EMAIL_DESC = "El email NO se encuentra registrado";
+	
+	public static String CODE_ERR_MODIFY_USER = "10";
+	public static String CODE_ERR_MODIFY_USER_DESC = "Error en la actualización del usuario";
 	
 }

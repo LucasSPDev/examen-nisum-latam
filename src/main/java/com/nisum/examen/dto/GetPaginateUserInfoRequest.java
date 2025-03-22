@@ -5,11 +5,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 public class GetPaginateUserInfoRequest {
 	
-	@Schema(description = "Índice de inicio para la paginación", example = "examen@nisum.com")
+	@Schema(description = "Índice de inicio para la paginación", example = "0")
 	@NotNull
 	private int start;
 	
-	@Schema(description = "Índice de fin para la paginación", example = "examen@nisum.com")
+	@Schema(description = "Índice de fin para la paginación", example = "10")
 	@NotNull
 	private int end;
 	

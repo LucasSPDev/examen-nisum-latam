@@ -137,16 +137,19 @@ public class UserService {
 		
 
 		modifyUser = getUserByUuid(modifyUser.getUuid());
+		
+		
+		if (!modifyUser.equals(validateUser)) {
+			
+			System.out.println("Los usuarios son diferentes");
+			response.setCode(Constants.CODE_ERR_MODIFY_USER);
+			response.setCodeDescription(Constants.CODE_ERR_MODIFY_USER_DESC);
 
-		if(modifyUser == null) {
-			response.setCode(Constants.CODE_ERR_CREATE_USER);
-			response.setCodeDescription(Constants.CODE_ERR_CREATE_USER_DESC);
-		}else {
-
+		} else {
+			System.out.println("Los usuarios son iguales");
 			response.setCode(Constants.CODE_OK);
 			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
 			response.setUser(modifyUser);
-
 		}
 
 		return response;

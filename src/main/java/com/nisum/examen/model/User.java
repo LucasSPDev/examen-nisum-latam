@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "USER")
 public class User {
@@ -111,12 +113,33 @@ public class User {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
+		return active == user.active &&
+				Objects.equals(uuid, user.uuid) &&
+				Objects.equals(created, user.created) &&
+				Objects.equals(modified, user.modified) &&
+				Objects.equals(lastLogin, user.lastLogin) &&
+				Objects.equals(token, user.token) &&
+				Objects.equals(name, user.name) &&
+				Objects.equals(email, user.email) &&
+				Objects.equals(password, user.password) &&
+				Objects.equals(phones, user.phones);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(uuid, created, modified, lastLogin, active, token, name, email, password, phones);
+	}
+
+	@Override
 	public String toString() {
 		return "User [uuid=" + uuid + ", created=" + created + ", modified=" + modified + ", lastLogin=" + lastLogin
 				+ ", active=" + active + ", token=" + token + ", name=" + name + ", email=" + email + ", password="
 				+ password + ", phones=" + phones + "]";
 	}
-
 
 
 }
