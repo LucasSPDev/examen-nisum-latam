@@ -300,7 +300,24 @@ contraseña: (vacía)
 - **Códigos de error:**
   - `200` - OK
   - `500` - Internal Server Error
-    
+## ⚠️ Códigos de Error y Descripciones
+
+La API maneja errores customizados con códigos específicos para facilitar la depuración y el manejo de respuestas en los clientes.
+
+| Código  | Descripción |
+|---------|------------|
+| `00`    | OK. |
+| `01`    | General Error. |
+| `02`    | Error en el campo 'name', no es valido. |
+| `03`    | Error en el campo 'email', no es valido (Ej: examen@nisum.com). |
+| `04`    | Error en el campo 'paswword', no es valido (Ej: Ab123456789). |
+| `05`    | Error en el campo 'phone', no es valido. |
+| `06`    | Error en la creacion del usuario. |
+| `07`    | Usuario no existe. |
+| `08`    | El email ya se encuentra registrado. |
+| `09`    | El email NO se encuentra registrado. |
+
+> 📌 **Nota:** En caso de error, la API devuelve una respuesta con el código de error y su descripción correspondiente.
 </Details>
 
 ## 📄 Colección de Postman
