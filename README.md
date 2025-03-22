@@ -248,18 +248,53 @@ contraseña: (vacía)
 - **URL:** `http://localhost:8080/modifyUser`
 - **Método:** `PUT`
 - **Parámetros:**
+   - `name` (String) - Nombre del usuario.
+   - `email`  (String) - Email de contacto del usuario.
+   - `password`  (String) - Contraseña del usuario.
+   - `phones`  (Lista) -  Telefonos de contacto del usuario.
+      -  `number`  (Number) - Numero telefonico de contacto.
+      -  `cityCode` (String) - Codigo telefonico de la ciudad.
+      -  `countryCode`(String) - Codigo telefonico del pais.
+- **Request:**
   ```json
-  {
-    "uuid": "abcd-1234",
-    "name": "Juan Actualizado",
-    "email": "juan@example.com"
-  }
+   {
+       "name": "Lucas Salvador",
+       "email": "test@asasasasas.com",
+       "password": "Ab123456789aaaaa",
+       "phones": [
+           {
+               "number": "11",
+               "cityCode": "1",
+               "countryCode": "57"
+           }
+       ]
+   }
   ```
-- **Respuesta:**
+- **Response:**
   ```json
-  {
-    "message": "Usuario actualizado exitosamente"
-  }
+      {
+       "code": "00",
+       "codeDescription": "OK",
+       "user": {
+           "uuid": "b9cdf54b-0a33-42aa-a9c9-fa44ca770f2d",
+           "created": "2025-03-22T15:05:02.925+00:00",
+           "modified": "2025-03-22T15:05:36.348+00:00",
+           "lastLogin": "2025-03-22T15:05:02.925+00:00",
+           "active": true,
+           "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGFzYXNhc2FzYXMuY29tIiwiaWF0IjoxNzQyNjU1OTAyLCJleHAiOjE3NDI3NDIzMDJ9.6RZ57KFAPRDqTbAN-28ZQukspBzkpXIHFghfiXZHwq8",
+           "name": "Lucas Salvador",
+           "email": "test@asasasasas.com",
+           "password": "Ab123456789aaaaa",
+           "phones": [
+               {
+                   "id": 2,
+                   "number": 11,
+                   "cityCode": "1",
+                   "countryCode": "57"
+               }
+           ]
+       }
+   }
   ```
 - **Códigos de error:**
   - `404` - Usuario no encontrado
