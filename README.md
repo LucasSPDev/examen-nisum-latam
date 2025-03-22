@@ -157,7 +157,7 @@ Esta aplicación incluye documentación interactiva de la API utilizando **Swagg
 Una vez que la aplicación esté en ejecución, puedes acceder a la interfaz gráfica de Swagger desde el siguiente enlace:
 
 📌 **URL por defecto**  
-🔗 http://localhost:8080/swagger-ui.html
+[`http://localhost:8080/swagger-ui.html`](http://localhost:8080/swagger-ui.html)
 ---
 
 ¡Listo para usar tu API! 🚀
