@@ -36,7 +36,8 @@ public class UserService {
 
 	@Autowired
 	private PhoneJPA phoneJPA;
-
+	
+	@Transactional
 	public CreateNewUserResponse createNewUser(CreateNewUserRequest request) {
 
 		CreateNewUserResponse response = new CreateNewUserResponse();
@@ -95,6 +96,7 @@ public class UserService {
 
 	}
 	
+	@Transactional
 	public ModifyUserResponse modifyUserByUUID(ModifyUserRequest request) {
 
 		ModifyUserResponse response = new ModifyUserResponse();
