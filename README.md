@@ -48,13 +48,36 @@ contraseña: (vacía)
 - **Método:** `GET`
 - **Parámetros:**
   - `uuid` (String) - UUID del usuario a buscar.
-- **Respuesta:**
+- **Request:**
   ```json
   {
-    "uuid": "1234-abcd",
-    "name": "Juan Perez",
-    "email": "juan@example.com"
+    "uuid": "614edaeb-610e-44bf-b5ca-9783e725078d"
   }
+- **Respuesta:**
+  ```json
+{
+    "code": "00",
+    "codeDescription": "OK",
+    "user": {
+        "uuid": "614edaeb-610e-44bf-b5ca-9783e725078d",
+        "created": "2025-03-22T11:58:53.512+00:00",
+        "modified": "2025-03-22T11:58:53.512+00:00",
+        "lastLogin": "2025-03-22T11:58:53.512+00:00",
+        "active": true,
+        "token": "abc",
+        "name": "111",
+        "email": "juan@rodriguez.org",
+        "password": "Ab123456789aaaaa",
+        "phones": [
+            {
+                "id": 1,
+                "number": 11,
+                "cityCode": "1",
+                "countryCode": "57"
+            }
+        ]
+    }
+}
   ```
 - **Códigos de error:**
   - `404` - Usuario no encontrado
