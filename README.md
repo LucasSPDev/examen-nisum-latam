@@ -42,6 +42,8 @@ contraseña: (vacía)
 ```
 
 ## 📌 API Endpoints
+A continuacion se lista el detalle de las aspis de este proyecto (no olvides hacer click en Details :smile:)
+
 <Details>
    
 ### 1. Verificar estado del servicio
