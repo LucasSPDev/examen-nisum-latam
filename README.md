@@ -147,6 +147,8 @@ contraseña: (vacía)
 ## 📄 Colección de Postman
 Puedes importar la colección de Postman adjunta en el repositorio para probar estas APIs.
 
+- examenNisumLatam.postman_collection.json
+
 ---
 
 ¡Listo para usar tu API! 🚀
