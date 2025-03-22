@@ -31,7 +31,8 @@ contraseña: (vacía)
 ```
 
 ## 📌 API Endpoints
-
+<Details>
+   
 ### 1. Verificar estado del servicio
 - **URL:** `http://localhost:8080/getStatusService`
 - **Método:** `GET`
@@ -299,6 +300,7 @@ contraseña: (vacía)
 - **Códigos de error:**
   - `404` - Usuario no encontrado
   - `400` - Datos inválidos
+</Details>
 
 ## 📄 Colección de Postman
 Puedes importar la colección de Postman adjunta en el repositorio para probar estas APIs.
