@@ -35,7 +35,7 @@ contraseña: (vacía)
 ### 1. Verificar estado del servicio
 - **URL:** `http://localhost:8080/getStatusService`
 - **Método:** `GET`
-- **Respuesta:**
+- **Response:**
   ```json
   {
     "status": "OK",
@@ -53,31 +53,31 @@ contraseña: (vacía)
   {
     "uuid": "614edaeb-610e-44bf-b5ca-9783e725078d"
   }
-- **Respuesta:**
+- **Response:**
   ```json
-{
-    "code": "00",
-    "codeDescription": "OK",
-    "user": {
-        "uuid": "614edaeb-610e-44bf-b5ca-9783e725078d",
-        "created": "2025-03-22T11:58:53.512+00:00",
-        "modified": "2025-03-22T11:58:53.512+00:00",
-        "lastLogin": "2025-03-22T11:58:53.512+00:00",
-        "active": true,
-        "token": "abc",
-        "name": "111",
-        "email": "juan@rodriguez.org",
-        "password": "Ab123456789aaaaa",
-        "phones": [
-            {
-                "id": 1,
-                "number": 11,
-                "cityCode": "1",
-                "countryCode": "57"
-            }
-        ]
-    }
-}
+   {
+       "code": "00",
+       "codeDescription": "OK",
+       "user": {
+           "uuid": "614edaeb-610e-44bf-b5ca-9783e725078d",
+           "created": "2025-03-22T11:58:53.512+00:00",
+           "modified": "2025-03-22T11:58:53.512+00:00",
+           "lastLogin": "2025-03-22T11:58:53.512+00:00",
+           "active": true,
+           "token": "abc",
+           "name": "111",
+           "email": "juan@rodriguez.org",
+           "password": "Ab123456789aaaaa",
+           "phones": [
+               {
+                   "id": 1,
+                   "number": 11,
+                   "cityCode": "1",
+                   "countryCode": "57"
+               }
+           ]
+       }
+   }
   ```
 - **Códigos de error:**
   - `404` - Usuario no encontrado
@@ -87,18 +87,61 @@ contraseña: (vacía)
 - **URL:** `http://localhost:8080/getPaginateUserInfo`
 - **Método:** `POST`
 - **Parámetros:**
+   - `start` (Number) - Índice de inicio para la paginación.
+   - `end` (Number) - Índice de fin para la paginación.
+- **Request:**
   ```json
   {
     "start": 0,
     "end": 10
   }
   ```
-- **Respuesta:**
+- **Response:**
   ```json
-  [
-    {"uuid": "1234", "name": "Juan"},
-    {"uuid": "5678", "name": "Ana"}
-  ]
+   {
+       "code": "00",
+       "codeDescription": "OK",
+       "userList": [
+           {
+               "uuid": "42858c49-2b50-479c-99a1-274dc2f15bbb",
+               "created": "2025-03-22T14:39:48.739+00:00",
+               "modified": "2025-03-22T14:39:48.739+00:00",
+               "lastLogin": "2025-03-22T14:39:48.739+00:00",
+               "active": true,
+               "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQyNjU0Mzg4LCJleHAiOjE3NDI3NDA3ODh9.y-Mhju45awhyVoX2TPR_B0Y5G_BQx99sSb-iu0Nhk-Q",
+               "name": "Lucas dos",
+               "email": "test@test.com",
+               "password": "Ab123456789aaaaa",
+               "phones": [
+                   {
+                       "id": 2,
+                       "number": 11,
+                       "cityCode": "1",
+                       "countryCode": "57"
+                   }
+               ]
+           },
+           {
+               "uuid": "b74951b4-ab96-4243-9ad0-8afd27772b06",
+               "created": "2025-03-22T14:39:30.442+00:00",
+               "modified": "2025-03-22T14:39:30.442+00:00",
+               "lastLogin": "2025-03-22T14:39:30.442+00:00",
+               "active": true,
+               "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWNhc0BsdWNhcy5jb20iLCJpYXQiOjE3NDI2NTQzNzAsImV4cCI6MTc0Mjc0MDc3MH0.QkS8u8P8gKTPEtoKO41gVNDB9NouCcgma509-K2_h-E",
+               "name": "11111",
+               "email": "lucas@lucas.com",
+               "password": "Ab123456789aaaaa",
+               "phones": [
+                   {
+                       "id": 1,
+                       "number": 11,
+                       "cityCode": "1",
+                       "countryCode": "57"
+                   }
+               ]
+           }
+       ]
+   }
   ```
 - **Códigos de error:**
   - `400` - Parámetros de paginación inválidos
@@ -109,13 +152,37 @@ contraseña: (vacía)
 - **Método:** `GET`
 - **Parámetros:**
   - `email` (String) - Email del usuario a buscar.
-- **Respuesta:**
+- **Request:**
+   ```json
+   {
+       "email":"test@test.com"
+   }
+   ```
+- **Response:**
   ```json
-  {
-    "uuid": "1234",
-    "name": "Juan",
-    "email": "juan@example.com"
-  }
+   {
+       "code": "00",
+       "codeDescription": "OK",
+       "user": {
+           "uuid": "42858c49-2b50-479c-99a1-274dc2f15bbb",
+           "created": "2025-03-22T14:39:48.739+00:00",
+           "modified": "2025-03-22T14:39:48.739+00:00",
+           "lastLogin": "2025-03-22T14:39:48.739+00:00",
+           "active": true,
+           "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzQyNjU0Mzg4LCJleHAiOjE3NDI3NDA3ODh9.y-Mhju45awhyVoX2TPR_B0Y5G_BQx99sSb-iu0Nhk-Q",
+           "name": "Lucas dos",
+           "email": "test@test.com",
+           "password": "Ab123456789aaaaa",
+           "phones": [
+               {
+                   "id": 2,
+                   "number": 11,
+                   "cityCode": "1",
+                   "countryCode": "57"
+               }
+           ]
+       }
+   }
   ```
 - **Códigos de error:**
   - `404` - Usuario no encontrado
