@@ -5,7 +5,7 @@ Este proyecto es una aplicación Spring Boot + Java 1.8 y utiliza HSQLDB como ba
 ## 🚀 Cómo levantar el proyecto
 
 ### Configuracion (Opcional)
-Los campos email y password de las API's, se validan mediante una expresion regular la cual debe ser configurada manualmente desde cada clase (CreateNewUserRequest y ModifyUserRequest)
+Los campos email y password de las API's, se validan mediante una expresión regular la cual debe ser configurada manualmente desde cada clase (CreateNewUserRequest y ModifyUserRequest)
 
 Por ejemplo:
 
@@ -42,7 +42,7 @@ contraseña: (vacía)
 ```
 
 ## 📌 API Endpoints
-A continuacion se lista el detalle de las aspis de este proyecto (no olvides hacer click en **Detalles** :smile:)
+A continuación se lista el detalle de las API's de este proyecto (no olvides hacer click en **Detalles** :smile:)
 
 <Details>
    
@@ -321,10 +321,10 @@ La API maneja errores customizados con códigos específicos para facilitar la d
 |---------|------------|
 | `00`    | OK. |
 | `01`    | General Error. |
-| `02`    | Error en el campo 'name', no es valido. |
-| `03`    | Error en el campo 'email', no es valido (Ej: examen@nisum.com). |
-| `04`    | Error en el campo 'paswword', no es valido (Ej: Ab123456789). |
-| `05`    | Error en el campo 'phone', no es valido. |
+| `02`    | Error en el campo 'name', no es válido. |
+| `03`    | Error en el campo 'email', no es válido (Ej: examen@nisum.com). |
+| `04`    | Error en el campo 'paswword', no es válido (Ej: Ab123456789). |
+| `05`    | Error en el campo 'phone', no es válido. |
 | `06`    | Error en la creacion del usuario. |
 | `07`    | Usuario no existe. |
 | `08`    | El email ya se encuentra registrado. |
@@ -340,7 +340,7 @@ Una vez que la aplicación esté en ejecución, puedes acceder a la interfaz gr�
  - [`http://localhost:8080/swagger-ui.html`](http://localhost:8080/swagger-ui.html)
 
 ### Diagrama de flujo
-Puedes encontrar un diagrama de las API's mas importantes dentro del proyecto
+Puedes encontrar un diagrama de las API's más importantes dentro del proyecto
  - DiagramaCreateNewUser.png
  - DiagramaModifyUser.png
    
