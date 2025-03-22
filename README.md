@@ -192,22 +192,53 @@ contraseña: (vacía)
 - **URL:** `http://localhost:8080/createNewUser`
 - **Método:** `POST`
 - **Parámetros:**
+   - `name` (String) - Nombre del usuario.
+   - `email`  (String) - Email de contacto del usuario.
+   - `password`  (String) - Contraseña del usuario.
+   - `phones`  (Lista) -  Telefonos de contacto del usuario.
+      -  `number`  (Number) - Numero telefonico de contacto.
+      -  `cityCode` (String) - Codigo telefonico de la ciudad.
+      -  `countryCode`(String) - Codigo telefonico del pais.
+- **Request:**
   ```json
-  {
-    "name": "Juan",
-    "email": "juan@example.com",
-    "password": "securePass123",
-    "phones": [
-      {"number": "12345678", "cityCode": "1", "countryCode": "57"}
-    ]
-  }
+   {
+       "name": "Lucas dos",
+       "email": "test@asasasasas.com",
+       "password": "Ab123456789aaaaa",
+       "phones": [
+           {
+               "number": 11,
+               "cityCode": "1",
+               "countryCode": "57"
+           }
+       ]
+   }
   ```
-- **Respuesta:**
+- **Response:**
   ```json
-  {
-    "uuid": "abcd-1234",
-    "message": "Usuario creado exitosamente"
-  }
+   {
+       "code": "00",
+       "codeDescription": "OK",
+       "user": {
+           "uuid": "7933a074-4c88-45e8-bee5-a8fe75c86ca1",
+           "created": "2025-03-22T14:57:47.464+00:00",
+           "modified": "2025-03-22T14:57:47.464+00:00",
+           "lastLogin": "2025-03-22T14:57:47.464+00:00",
+           "active": true,
+           "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGFzYXNhc2FzYXMuY29tIiwiaWF0IjoxNzQyNjU1NDY3LCJleHAiOjE3NDI3NDE4Njd9.t-Mi_vAQBjvessa_ZG8AXAaphmT-u92fz3-0wRHLg3c",
+           "name": "Lucas dos",
+           "email": "test@asasasasas.com",
+           "password": "Ab123456789aaaaa",
+           "phones": [
+               {
+                   "id": 3,
+                   "number": 11,
+                   "cityCode": "1",
+                   "countryCode": "57"
+               }
+           ]
+       }
+   }
   ```
 - **Códigos de error:**
   - `400` - Datos de usuario inválidos
