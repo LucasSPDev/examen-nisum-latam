@@ -7,7 +7,7 @@ Este proyecto es una aplicación Spring Boot + Java 1.8 y utiliza HSQLDB como ba
 ### Prerrequisitos
 - Java 8+
 - Maven 3.9.7
-- HSQLDB 2.5.2
+- HSQLDB 2.5.2 (Opcional)
 
 ### Pasos para ejecutar
 1. Clonar el repositorio:
