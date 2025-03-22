@@ -42,7 +42,7 @@ contraseña: (vacía)
 ```
 
 ## 📌 API Endpoints
-A continuacion se lista el detalle de las aspis de este proyecto (no olvides hacer click en Details :smile:)
+A continuacion se lista el detalle de las aspis de este proyecto (no olvides hacer click en **Detalles** :smile:)
 
 <Details>
    
