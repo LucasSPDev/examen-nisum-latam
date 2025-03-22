@@ -5,7 +5,7 @@ import java.util.List;
 import com.nisum.examen.model.Phone;
 
 public class UserResponse extends CommonResponse{
-	
+
 	private String uuid;
 	private String name;
 	private String email;
@@ -16,7 +16,7 @@ public class UserResponse extends CommonResponse{
 	private boolean isActive;
 	private String token;
 	private List<Phone> phoneList;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -77,5 +77,5 @@ public class UserResponse extends CommonResponse{
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
+
 }

@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-public class UserRequest{
+public class CreateNewUserRequest{
 
 	private String uuid;
 

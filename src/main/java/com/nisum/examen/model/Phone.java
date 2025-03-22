@@ -13,26 +13,26 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "PHONE")
 public class Phone{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private long id;
-	
+
 	@Column(name = "number")
 	private long number;
-	
+
 	@Column(name = "city_code")
 	private String cityCode;
-	
+
 	@Column(name = "country_code")
 	private String countryCode;
-	
-    @ManyToOne
-    @JoinColumn(name = "user_uuid", nullable = false)
-    @JsonBackReference
-    private User user;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "user_uuid", nullable = false)
+	@JsonBackReference
+	private User user;
+
 	public long getId() {
 		return id;
 	}

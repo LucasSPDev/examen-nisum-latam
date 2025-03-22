@@ -12,10 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nisum.examen.service.UserService;
 import com.nisum.examen.base.Constants;
 import com.nisum.examen.dto.CommonResponse;
-import com.nisum.examen.dto.UserRequest;
-import com.nisum.examen.dto.UserResponse;
+import com.nisum.examen.dto.CreateNewUserRequest;
+import com.nisum.examen.dto.CreateNewUserResponse;
+import com.nisum.examen.dto.GetUserInfoByEmailRequest;
+import com.nisum.examen.dto.GetUserInfoByEmailResponse;
+import com.nisum.examen.dto.GetUserInfoByUUIDRequest;
+import com.nisum.examen.dto.GetUserInfoByUUIDResponse;
+import com.nisum.examen.dto.GetPaginateUserInfoRequest;
+import com.nisum.examen.dto.GetPaginateUserInfoResponse;
+import com.nisum.examen.dto.ModifyUserRequest;
+import com.nisum.examen.dto.ModifyUserResponse;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -36,48 +46,129 @@ public class UserController {
 	}
 
 	@PostMapping("/createNewUser")
-	public ResponseEntity<UserResponse> createNewUser(@Valid @RequestBody UserRequest userRequest, BindingResult bindingResult) {
+	public ResponseEntity<CreateNewUserResponse> createNewUser(@Valid @RequestBody CreateNewUserRequest request, BindingResult bindingResult) {
 
 		try {
 
-			UserResponse userResponse = new UserResponse();
-			userResponse.setCode(Constants.CODE_OK);
-			userResponse.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
+			CreateNewUserResponse response = new CreateNewUserResponse();
+			response.setCode(Constants.CODE_OK);
+			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
 
-			CommonResponse commonResponse = validateRequestUser(userRequest, bindingResult);
+			CommonResponse commonResponse = validateRequestUserCreation(bindingResult);
 
 			if(!commonResponse.getCode().equals(Constants.CODE_OK)) {
-				userResponse.setCode(commonResponse.getCode());
-				userResponse.setCodeDescription(commonResponse.getCodeDescription());	
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(userResponse);
+				response.setCode(commonResponse.getCode());
+				response.setCodeDescription(commonResponse.getCodeDescription());	
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 
 			}
 
-			userResponse = this.userService.createNewUser(userRequest);		
-			return ResponseEntity.status(HttpStatus.OK).body(userResponse);
+			response = this.userService.createNewUser(request);		
+			return ResponseEntity.status(HttpStatus.OK).body(response);
 
 		}catch(Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+			
+			CreateNewUserResponse errResponse = new CreateNewUserResponse();
+			errResponse.setCode(Constants.CODE_GENERAL_ERROR);
+			errResponse.setCodeDescription(Constants.CODE_GENERAL_ERROR_DESC);
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errResponse);
 		}
 
+	}
+	
+	@PostMapping("/modifyUser")
+	public ResponseEntity<ModifyUserResponse> modifyUser(@RequestBody ModifyUserRequest request) {
+
+		try {
+
+			ModifyUserResponse response = new ModifyUserResponse();
+			response.setCode(Constants.CODE_OK);
+			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
+
+			response = this.userService.modifyUserByUUID(request);
+			return ResponseEntity.status(HttpStatus.OK).body(response);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+
+			ModifyUserResponse errResponse = new ModifyUserResponse();
+			errResponse.setCode(Constants.CODE_GENERAL_ERROR);
+			errResponse.setCodeDescription(Constants.CODE_GENERAL_ERROR_DESC);
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errResponse);
+		}	
 
 	}
 
+	@GetMapping("/getPaginateUserInfo")
+	public ResponseEntity<GetPaginateUserInfoResponse> getPaginateUserInfo(@RequestBody GetPaginateUserInfoRequest userPaginateRequest) {
 
-	@GetMapping("/getUserInfo")
-	public ResponseEntity<UserResponse> getUserInfoByUUID(@RequestBody UserRequest userRequest) {
+		try {		
 
-		UserResponse userResponse = new UserResponse();
-		userResponse.setCode(Constants.CODE_OK);
-		userResponse.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
+			GetPaginateUserInfoResponse response = this.userService.getPaginateUserInfo(userPaginateRequest.getStart(), userPaginateRequest.getEnd());
+			return ResponseEntity.status(HttpStatus.OK).body(response);
 
-		userResponse = this.userService.getUserInfoByUUID(userRequest.getUuid());
-		return ResponseEntity.status(HttpStatus.OK).body(userResponse);
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+			GetPaginateUserInfoResponse errResponse = new GetPaginateUserInfoResponse();
+			errResponse.setCode(Constants.CODE_GENERAL_ERROR);
+			errResponse.setCodeDescription(Constants.CODE_GENERAL_ERROR_DESC);
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errResponse);
+		}	
+
 	}
 
+	@GetMapping("/getUserInfoByUUID")
+	public ResponseEntity<GetUserInfoByUUIDResponse> getUserInfoByUUID(@RequestBody GetUserInfoByUUIDRequest request) {
+		try {
 
-	public CommonResponse validateRequestUser(UserRequest userRequest, BindingResult bindingResult) {
+			GetUserInfoByUUIDResponse response = new GetUserInfoByUUIDResponse();
+			response.setCode(Constants.CODE_OK);
+			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
+
+			response = this.userService.getUserInfoByUUID(request.getUuid());
+			return ResponseEntity.status(HttpStatus.OK).body(response);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+
+			GetUserInfoByUUIDResponse errResponse = new GetUserInfoByUUIDResponse();
+			errResponse.setCode(Constants.CODE_GENERAL_ERROR);
+			errResponse.setCodeDescription(Constants.CODE_GENERAL_ERROR_DESC);
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errResponse);
+		}	
+
+	}
+
+	@GetMapping("/getUserInfoByEmail")
+	public ResponseEntity<GetUserInfoByEmailResponse> getUserInfoByEmail(@RequestBody GetUserInfoByEmailRequest request) {
+		try {
+
+			GetUserInfoByEmailResponse response = new GetUserInfoByEmailResponse();
+			response.setCode(Constants.CODE_OK);
+			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
+
+			response = this.userService.getUserInfoByEmail(request.getEmail());
+			return ResponseEntity.status(HttpStatus.OK).body(response);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+			GetUserInfoByEmailResponse errResponse = new GetUserInfoByEmailResponse();
+			errResponse.setCode(Constants.CODE_GENERAL_ERROR);
+			errResponse.setCodeDescription(Constants.CODE_GENERAL_ERROR_DESC);
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errResponse);
+		}
+
+	}
+
+	public CommonResponse validateRequestUserCreation(BindingResult bindingResult) {
 
 		CommonResponse commonResponse = new CommonResponse();
 		commonResponse.setCode(Constants.CODE_OK);
@@ -110,10 +201,8 @@ public class UserController {
 
 		}
 
-
 		return commonResponse;
 
 	}
-
 
 }

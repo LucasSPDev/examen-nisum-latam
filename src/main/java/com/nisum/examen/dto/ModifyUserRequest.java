@@ -14,9 +14,7 @@ import javax.validation.constraints.NotEmpty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-public class UserRequest{
-
-	private String uuid;
+public class ModifyUserRequest{
 
 	@Schema(description = "Nombre completo del usuario", example = "Juan Rodríguez")
 	@NotNull
@@ -66,12 +64,6 @@ public class UserRequest{
 	}
 	public void setPhones(List<Phone> phones) {
 		this.phones = phones;
-	}
-	public String getUuid() {
-		return uuid;
-	}
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
 	}
 
 }

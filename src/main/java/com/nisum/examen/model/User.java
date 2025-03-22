@@ -18,28 +18,28 @@ public class User {
 	@Id
 	@Column(name = "uuid")
 	private String uuid;
-	
+
 	@Column(name = "created")
 	private Date created;
-	
+
 	@Column(name = "modified")
 	private Date modified;
-	
+
 	@Column(name = "last_login")
 	private Date lastLogin;
-	
+
 	@Column(name = "active")
 	private boolean active;
-	
+
 	@Column(name = "token")
 	private String token;
 
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "password")
 	private String password;
 
@@ -70,7 +70,7 @@ public class User {
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
 	}
-	
+
 	public String getToken() {
 		return token;
 	}
@@ -102,14 +102,14 @@ public class User {
 	public void setPhones(List<Phone> phones) {
 		this.phones = phones;
 	}
-	
-	public boolean isActive() {
+
+	public boolean getActive() {
 		return active;
 	}
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "User [uuid=" + uuid + ", created=" + created + ", modified=" + modified + ", lastLogin=" + lastLogin
@@ -117,6 +117,6 @@ public class User {
 				+ password + ", phones=" + phones + "]";
 	}
 
-	
+
 
 }

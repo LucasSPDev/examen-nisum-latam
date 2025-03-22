@@ -1,10 +1,10 @@
 package com.nisum.examen.dto;
 
 public class CommonResponse {
-	
+
 	private String code;
 	private String codeDescription;
-	
+
 	public String getCode() {
 		return code;
 	}
@@ -17,7 +17,7 @@ public class CommonResponse {
 	public void setCodeDescription(String codeDescription) {
 		this.codeDescription = codeDescription;
 	}
-	
-	
+
+
 
 }
