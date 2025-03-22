@@ -4,7 +4,18 @@ Este proyecto es una aplicación Spring Boot + Java 1.8 y utiliza HSQLDB como ba
 
 ## 🚀 Cómo levantar el proyecto
 
-### Prerrequisitos
+### Configuracion (Opcional)
+Los campos email y password de las API's, se validan mediante una expresion regular la cual debe ser configurada manualmente desde cada clase (CreateNewUserRequest y ModifyUserRequest)
+
+Por ejemplo:
+
+	@Pattern(regexp="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")
+	private String email; // examen@nisum.com
+
+	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=(.*\\d){9,}).*$")
+	private String password; // Ab123456789
+ 
+### Pre Requisitos
 - Java 8+
 - Maven 3.9.7
 - HSQLDB 2.5.2 (Opcional)
