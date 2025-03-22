@@ -340,7 +340,7 @@ Una vez que la aplicación esté en ejecución, puedes acceder a la interfaz gr�
  - [`http://localhost:8080/swagger-ui.html`](http://localhost:8080/swagger-ui.html)
 
 ### Diagrama de flujo
-Puedes encontrar un diagrama de las apis mas importantes dentro del proyecto
+Puedes encontrar un diagrama de las API's mas importantes dentro del proyecto
  - DiagramaCreateNewUser.png
  - DiagramaModifyUser.png
    
