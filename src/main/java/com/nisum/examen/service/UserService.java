@@ -38,6 +38,9 @@ public class UserService {
 	@Autowired
 	private PhoneJPA phoneJPA;
 	
+	@Autowired
+	private ValidationContextService validationContext;
+	
 	@Transactional
 	public CreateNewUserResponse createNewUser(CreateNewUserRequest request) {
 
@@ -219,5 +222,12 @@ public class UserService {
 
 	    return userJPA.findByEmail(email).orElse(null);
 	}
+	
+    public boolean validateEmail(String email) {
+        return validationContext.validate("emailValidator", email);
+    }
 
+    public boolean validatePassword(String password) {
+        return validationContext.validate("passwordValidator", password);
+    }
 }

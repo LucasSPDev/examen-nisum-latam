@@ -53,7 +53,7 @@ public class UserController {
 			CreateNewUserResponse response = new CreateNewUserResponse();
 			response.setCode(Constants.CODE_OK);
 			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
-
+		
 			CommonResponse commonResponse = validateRequestUserCreation(bindingResult);
 
 			if(!commonResponse.getCode().equals(Constants.CODE_OK)) {
@@ -61,6 +61,20 @@ public class UserController {
 				response.setCodeDescription(commonResponse.getCodeDescription());	
 				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 
+			}
+			
+			if(!this.userService.validateEmail(request.getEmail())) {
+				
+				response.setCode(Constants.CODE_EMAIL_FORMAT);
+				response.setCodeDescription(Constants.CODE_EMAIL_FORMAT_DESC);
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);	
+			}
+			
+			if(!this.userService.validatePassword(request.getPassword())) {
+				
+				response.setCode(Constants.CODE_PASSWORD_FORMAT);
+				response.setCodeDescription(Constants.CODE_PASSWORD_FORMAT_DESC);
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 			}
 
 			response = this.userService.createNewUser(request);		
@@ -86,6 +100,20 @@ public class UserController {
 			ModifyUserResponse response = new ModifyUserResponse();
 			response.setCode(Constants.CODE_OK);
 			response.setCodeDescription(Constants.CODE_OK_DESCRIPTION);
+			
+			if(!this.userService.validateEmail(request.getEmail())) {
+				
+				response.setCode(Constants.CODE_EMAIL_FORMAT);
+				response.setCodeDescription(Constants.CODE_EMAIL_FORMAT_DESC);
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);	
+			}
+			
+			if(!this.userService.validatePassword(request.getPassword())) {
+				
+				response.setCode(Constants.CODE_PASSWORD_FORMAT);
+				response.setCodeDescription(Constants.CODE_PASSWORD_FORMAT_DESC);
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+			}
 
 			response = this.userService.modifyUserByUUID(request);
 			return ResponseEntity.status(HttpStatus.OK).body(response);

@@ -28,14 +28,12 @@ public class CreateNewUserRequest{
 	@NotNull
 	@NotEmpty
 	@NotBlank
-	@Pattern(regexp="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")
 	private String email;
 
 	@Schema(description = "Contraseña del usuario", example = "Ab123456789")
 	@NotNull
 	@NotEmpty
 	@NotBlank
-	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=(.*\\d){9,}).*$")
 	private String password;
 
 	@Schema(description = "Lista de telefonos de contacto del usuario", example = "Lista")
