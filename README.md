@@ -21,7 +21,6 @@ Por ejemplo:
 1. Clonar el repositorio:
    ```sh
    git clone <git clone https://github.com/LucasSPDev/examen-nisum-latam.git>
-   cd examen-nisum-latam
    ```
 2. Compilar y ejecutar la aplicación:
    ```sh
