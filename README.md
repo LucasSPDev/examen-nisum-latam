@@ -5,7 +5,7 @@ Este proyecto es una aplicación Spring Boot + Java 1.8 y utiliza HSQLDB como ba
 ## 🚀 Cómo levantar el proyecto
 
 ### Configuracion (Opcional)
-Los campos email y password de las API's, se validan mediante una expresión regular la cual debe ser configurada manualmente desde el archivo application.properties
+Los campos email y password de las API's, se validan mediante una expresión regular la cual debe ser configurada manualmente desde el archivo **application.properties**
 
 Por ejemplo:
 
